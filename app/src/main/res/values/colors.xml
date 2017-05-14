@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Deffault App Color-->
+    <color name="colorPrimary">#4A312A</color>
+    <color name="colorPrimaryDark">#2F1D1A</color>
+    <color name="colorAccent">#000</color>
+
+    <!--Background Category Image-->
+    <color name="tan_background">#FFF7DA</color>
+
+    <!--Color Category-->
+    <color name="numberCategory">#FD8E09</color>
+    <color name="categoryFamily">#379237</color>
+    <color name="categoryColors">#8800A0</color>
+    <color name="categoryPhrases">#16AFCA</color>
+
+</resources>
