@@ -3,7 +3,7 @@ package com.alfatihramadhan.miwok.Category;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +21,7 @@ public class FamilyMembersActivity extends AppCompatActivity {
     public static MediaPlayer mediaPlayer;
     AudioManager audioManager;
     //declare custom OnCompleteListener Class
-    private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
+    private final MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
             releaseMediaPlayer();

@@ -1,7 +1,7 @@
 package com.alfatihramadhan.miwok.Adapter;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private int colorCategory;
+    private final int colorCategory;
 
     public WordAdapter(Context context,List<Word> objects, int colorCategory) {
         super(context, 0, objects);
