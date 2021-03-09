@@ -8,45 +8,17 @@
     android:orientation="vertical"
     tools:context="com.alfatihramadhan.miwok.MainActivity">
 
-    <TextView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        app:tabMode="fixed"
+        style="@style/CategoryTab"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/number_activity"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:text="Numbers"
-        android:padding="30dp"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:layout_height="wrap_content"/>
 
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/family_members_activity"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:text="Family Members"
-        android:padding="30dp"
-        android:background="@color/categoryFamily"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Colors"
-        android:id="@+id/colors_activity"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:padding="30dp"
-        android:background="@color/categoryColors"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:text="Phrases"
-        android:id="@+id/phrases_activity"
-        android:padding="30dp"
-        android:background="@color/categoryPhrases"/>
-
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

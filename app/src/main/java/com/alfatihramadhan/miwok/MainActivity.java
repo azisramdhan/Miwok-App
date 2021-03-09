@@ -1,15 +1,18 @@
 package com.alfatihramadhan.miwok;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
-import com.alfatihramadhan.miwok.Category.ColorsActivity;
-import com.alfatihramadhan.miwok.Category.FamilyMembersActivity;
-import com.alfatihramadhan.miwok.Category.NumbersActivity;
-import com.alfatihramadhan.miwok.Category.PhrasesActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.alfatihramadhan.miwok.Fragment.ColorsFragment;
+import com.alfatihramadhan.miwok.Fragment.FamilyMembersFragment;
+import com.alfatihramadhan.miwok.Fragment.NumbersFragment;
+import com.alfatihramadhan.miwok.Fragment.PhrasesFragment;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,41 +21,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView number = (TextView)findViewById(R.id.number_activity);
-        number.setOnClickListener(new View.OnClickListener() {
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        TabLayout slidingTab = (TabLayout)findViewById(R.id.tab);
+
+        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+            private final String[] tabTitles = {"Numbers","Family","Phrases","Colors"};
+            @NonNull
             @Override
-            public void onClick(View view) {
-               Intent intent = new Intent(MainActivity.this,NumbersActivity.class);
-                startActivity(intent);
+            public Fragment getItem(int position) {
+                if(position == 0){
+                    return new NumbersFragment();
+                }else if(position == 1){
+                    return new FamilyMembersFragment();
+                }else if(position == 2){
+                    return new PhrasesFragment();
+                }else{
+                    return new ColorsFragment();
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 4;
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return tabTitles[position];
             }
         });
 
-        TextView family = (TextView)findViewById(R.id.family_members_activity);
-        family.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,FamilyMembersActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        TextView color = (TextView)findViewById(R.id.colors_activity);
-        color.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ColorsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        TextView phrases = (TextView)findViewById(R.id.phrases_activity);
-        phrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,PhrasesActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        slidingTab.setupWithViewPager(viewPager);
     }
 }

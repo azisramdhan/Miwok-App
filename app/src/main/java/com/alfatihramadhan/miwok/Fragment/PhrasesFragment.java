@@ -1,27 +1,30 @@
-package com.alfatihramadhan.miwok.Category;
+package com.alfatihramadhan.miwok.Fragment;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.alfatihramadhan.miwok.R;
-import com.alfatihramadhan.miwok.Data.Word;
 import com.alfatihramadhan.miwok.Adapter.WordAdapter;
+import com.alfatihramadhan.miwok.Data.Word;
+import com.alfatihramadhan.miwok.R;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+public class PhrasesFragment extends Fragment {
+
 
     //declare an android class to manage audio file
     public static MediaPlayer mediaPlayer;
     AudioManager audioManager;
     //declare custom OnCompleteListener Class
-    private final MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
+    private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
             releaseMediaPlayer();
@@ -55,26 +58,27 @@ public class ColorsActivity extends AppCompatActivity {
     ArrayList<Word> words;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list,container,false);
 
-        //get system service
-        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        //get system service from activity of fragment
+        audioManager = (AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
 
         words = new ArrayList<>();
-        words.add(new Word("red","wetetti",R.drawable.color_red,R.raw.color_red));
-        words.add(new Word("green","chokokki",R.drawable.color_green,R.raw.color_green));
-        words.add(new Word("brown","takaakki",R.drawable.color_brown,R.raw.color_brown));
-        words.add(new Word("gray","topoppi",R.drawable.color_gray,R.raw.color_gray));
-        words.add(new Word("black","kululli",R.drawable.color_black,R.raw.color_black));
-        words.add(new Word("white","kelelli",R.drawable.color_white,R.raw.color_white));
-        words.add(new Word("dusty yellow","topiise",R.drawable.color_dusty_yellow,R.raw.color_dusty_yellow));
-        words.add(new Word("mustard yellow","chiwiite",R.drawable.color_mustard_yellow,R.raw.color_mustard_yellow));
+        words.add(new Word("Where are you going","minto wuksus",R.raw.phrase_where_are_you_going));
+        words.add(new Word("What is your name","tinna oyaase'na",R.raw.phrase_what_is_your_name));
+        words.add(new Word("My name is ..","oyaaset..",R.raw.phrase_my_name_is));
+        words.add(new Word("How are you feeling?","michakses?",R.raw.phrase_how_are_you_feeling));
+        words.add(new Word("I'm feeling good","kuchi achit",R.raw.phrase_im_feeling_good));
+        words.add(new Word("Are you coming?","eenas'aa?",R.raw.phrase_are_you_coming));
+        words.add(new Word("Yes, I'm coming","hee'eenem",R.raw.phrase_yes_im_coming));
+        words.add(new Word("I'm coming","eenem",R.raw.phrase_im_coming));
+        words.add(new Word("Let's go","yoowutis",R.raw.phrase_lets_go));
+        words.add(new Word("Come here","anni'nem",R.raw.phrase_come_here));
 
-        WordAdapter listViewAdapter = new WordAdapter(this,words,R.color.categoryColors);
+        WordAdapter listViewAdapter = new WordAdapter(getActivity(),words,R.color.categoryPhrases);
 
-        ListView numberListView = (ListView) findViewById(R.id.listview_number);
+        ListView numberListView = (ListView) rootView.findViewById(R.id.listview_number);
 
         numberListView.setAdapter(listViewAdapter);
 
@@ -98,7 +102,7 @@ public class ColorsActivity extends AppCompatActivity {
                 //audio can't play if there is no audio focus
                 if(result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
                     //We have audio focus now, then create media player
-                    mediaPlayer = MediaPlayer.create(getApplicationContext(),audioResource);
+                    mediaPlayer = MediaPlayer.create(getActivity(),audioResource);
                     //start media player to play an audio file
                     mediaPlayer.start();
                     //if media player finished playing an audio file, call media player callback method OnCompletionListener
@@ -107,12 +111,13 @@ public class ColorsActivity extends AppCompatActivity {
             }
         });
 
-
+        return rootView;
     }
 
-    //when activity lifecycle in stop state
+
+    //when fragment lifecycle in stop state
     @Override
-    protected void onStop() {
+    public void onStop() {
         //when implementing superclass method we must call it first using command super.method();
         super.onStop();
         //call releaseMediaPlayer method
