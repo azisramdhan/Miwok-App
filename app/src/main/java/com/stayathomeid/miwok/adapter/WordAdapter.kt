@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok.adapter
+package com.stayathomeid.miwok.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.alfatihramadhan.miwok.data.Word
-import com.alfatihramadhan.miwok.R
+import com.stayathomeid.miwok.data.Word
+import com.stayathomeid.miwok.R
 
 /**
  * Created by alfatih on 4/30/2017.

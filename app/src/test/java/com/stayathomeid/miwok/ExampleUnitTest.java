@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok;
+package com.stayathomeid.miwok;
 
 import org.junit.Test;
 

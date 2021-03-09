@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok.fragment
+package com.stayathomeid.miwok.fragment
 
 import android.content.Context
 import android.media.AudioManager
@@ -12,9 +12,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import com.alfatihramadhan.miwok.adapter.WordAdapter
-import com.alfatihramadhan.miwok.data.Word
-import com.alfatihramadhan.miwok.R
+import com.stayathomeid.miwok.adapter.WordAdapter
+import com.stayathomeid.miwok.data.Word
+import com.stayathomeid.miwok.R
 import java.util.*
 
 /**

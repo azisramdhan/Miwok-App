@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok.data
+package com.stayathomeid.miwok.data
 
 /**
  * Created by alfatih on 4/30/2017.

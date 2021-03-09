@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok
+package com.stayathomeid.miwok
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.alfatihramadhan.miwok.fragment.ColorsFragment
-import com.alfatihramadhan.miwok.fragment.FamilyMembersFragment
-import com.alfatihramadhan.miwok.fragment.NumbersFragment
-import com.alfatihramadhan.miwok.fragment.PhrasesFragment
+import com.stayathomeid.miwok.fragment.ColorsFragment
+import com.stayathomeid.miwok.fragment.FamilyMembersFragment
+import com.stayathomeid.miwok.fragment.NumbersFragment
+import com.stayathomeid.miwok.fragment.PhrasesFragment
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {

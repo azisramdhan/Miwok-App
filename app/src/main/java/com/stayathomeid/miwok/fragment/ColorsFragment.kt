@@ -1,4 +1,4 @@
-package com.alfatihramadhan.miwok.fragment
+package com.stayathomeid.miwok.fragment
 
 import android.content.Context
 import android.media.AudioManager
@@ -12,15 +12,15 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import com.alfatihramadhan.miwok.adapter.WordAdapter
-import com.alfatihramadhan.miwok.data.Word
-import com.alfatihramadhan.miwok.R
+import com.stayathomeid.miwok.adapter.WordAdapter
+import com.stayathomeid.miwok.data.Word
+import com.stayathomeid.miwok.R
 import java.util.*
 
 /**
  * Created by alfatih on 5/16/2017.
  */
-class FamilyMembersFragment : Fragment() {
+class ColorsFragment : Fragment() {
     var audioManager: AudioManager? = null
 
     //declare custom OnCompleteListener Class
@@ -55,17 +55,15 @@ class FamilyMembersFragment : Fragment() {
         //get system service
         audioManager = activity!!.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         words = ArrayList()
-        words!!.add(Word("father", "ede", R.drawable.family_father, R.raw.family_father))
-        words!!.add(Word("mother", "eta", R.drawable.family_mother, R.raw.family_mother))
-        words!!.add(Word("son", "angsi", R.drawable.family_son, R.raw.family_son))
-        words!!.add(Word("daughter", "tune", R.drawable.family_daughter, R.raw.family_daughter))
-        words!!.add(Word("older brother", "taachi", R.drawable.family_older_brother, R.raw.family_older_brother))
-        words!!.add(Word("younger brother", "chalitti", R.drawable.family_younger_brother, R.raw.family_younger_brother))
-        words!!.add(Word("older sister", "tete", R.drawable.family_older_sister, R.raw.family_older_sister))
-        words!!.add(Word("younger sister", "kolitti", R.drawable.family_older_sister, R.raw.family_younger_sister))
-        words!!.add(Word("grandmother", "ama", R.drawable.family_grandmother, R.raw.family_grandmother))
-        words!!.add(Word("grandfather", "paapa", R.drawable.family_grandfather, R.raw.family_grandfather))
-        val listViewAdapter = WordAdapter(activity, words, R.color.categoryFamily)
+        words!!.add(Word("red", "wetetti", R.drawable.color_red, R.raw.color_red))
+        words!!.add(Word("green", "chokokki", R.drawable.color_green, R.raw.color_green))
+        words!!.add(Word("brown", "takaakki", R.drawable.color_brown, R.raw.color_brown))
+        words!!.add(Word("gray", "topoppi", R.drawable.color_gray, R.raw.color_gray))
+        words!!.add(Word("black", "kululli", R.drawable.color_black, R.raw.color_black))
+        words!!.add(Word("white", "kelelli", R.drawable.color_white, R.raw.color_white))
+        words!!.add(Word("dusty yellow", "topiise", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow))
+        words!!.add(Word("mustard yellow", "chiwiite", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow))
+        val listViewAdapter = WordAdapter(activity, words, R.color.categoryColors)
         val numberListView = rootView.findViewById<View>(R.id.listview_number) as ListView
         numberListView.adapter = listViewAdapter
         numberListView.onItemClickListener = OnItemClickListener { _, _, i, _ ->
@@ -97,7 +95,7 @@ class FamilyMembersFragment : Fragment() {
         return rootView
     }
 
-    //when activity lifecycle in stop state
+    //when fragment lifecycle in stop state
     override fun onStop() {
         //when implementing superclass method we must call it first using command super.method();
         super.onStop()
